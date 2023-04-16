@@ -5,41 +5,90 @@
     <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/css/app.css">
     </head>
+
+    @if (Auth::user()->role=='Admin')
 <nav class="navbar navbar-expand-lg bg-light" >
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/dashboard">Dashboard Mall 1</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href= "#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Parkir Mall
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/mall1">Mall 1</a></li>
-            <li><a class="dropdown-item" href="/mall2">Mall 2</a></li>
-            <li><a class="dropdown-item" href="/mall3">Mall 3</a></li>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/dashboard">Admin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href= "#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Parkir Mall
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/mall1">Mall 1</a></li>
+                <li><a class="dropdown-item" href="/mall2">Mall 2</a></li>
+                <li><a class="dropdown-item" href="/mall3">Mall 3</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pmasuk1">Petugas Masuk</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pruang1">Petugas Ruang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pkeluar1">Petugas Keluar</a>
+            </li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/pmasuk1">Petugas Masuk</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/pruang1">Petugas Ruang</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/pkeluar1">Petugas Keluar</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+          <form action="/logout" method="post">
+            @csrf
+            <button type="submit" class="btn btn-outline-success"><i class="bi bi-box-arrow-right"></i>Logout</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    @else
+    <nav class="navbar navbar-expand-lg bg-light" >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/mall1">Mall 1</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href= "#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Parkir Mall
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/mall1">Mall 1</a></li>
+                <li><a class="dropdown-item" href="/mall2">Mall 2</a></li>
+                <li><a class="dropdown-item" href="/mall3">Mall 3</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pmasuk1">Petugas Masuk</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="/pruang1">Petugas Ruang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pkeluar1">Petugas Keluar</a>
+            </li> -->
+          </ul>
+          <form action="/logout" method="post">
+            @csrf
+            <button type="submit" class="btn btn-outline-success"><i class="bi bi-box-arrow-right"></i>Logout</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    @endif
+    </html>
+
+    @if (Auth::user()->role=='Petugas Masuk')
+    <div class="box" style="width:1400px; margin:auto; margin-top:50px; background-color:cream; border-radius:10px">
+      <h1 class="display-4" style="margin-left:10px">Selamat datang, Petugas Masuk</h1>
+      <hr class="my-4">
+      <p style="margin-left:10px"></p>
     </div>
-  </div>
-</nav>
+    @endif
 @extends('layouts.master')
 @section('content')
     @if(session('sukses'))
@@ -65,9 +114,9 @@
                     <th>Detail</th>
                 </tr>
                 @foreach($data_parkir as $parkir)
-                
+                @if($parkir->pernah_masuk == 0)
                 <tr>
-                    @if($parkir->sudah_masuk == 0)
+                    @if($parkir->ruangParkir == NULL)
                         <tr style = 'background-color:red; color:white'>
                     @else
                         <tr style = 'background-color:lightgreen'>
@@ -76,13 +125,14 @@
                     <td>{{$parkir->platNomor}}</td>
                     <td>{{$parkir->ruangParkir}}</td>
                     
-                    @if($parkir->sudah_masuk == 0)
+                    @if($parkir->ruangParkir == NULL)
                         <td>Belum masuk</td>
                     @else
                         <td>Sudah masuk</td>
                     @endif
 
                 </tr>
+                @endif
                 @endforeach
             </table>
         </div>
@@ -108,6 +158,14 @@
                     @error('platNomor')
                         <div class="text-danger small">{{ $message }}</div>
                     @enderror
+                </div>
+                <div class="form-group" hidden>
+                <label for="exampleFormControlSelect1">Plat Nomor yang tersedia</label>
+                <select class="form-control" name="sudah_masuk" id="exampleFormControlSelect1">
+                    
+                    <option value="1">1</option>
+                    
+                </select>
                 </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

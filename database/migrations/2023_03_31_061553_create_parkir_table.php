@@ -18,6 +18,7 @@ class CreateParkirTable extends Migration
             $table->string('platNomor', 8)->unique();
             $table->string('ruangParkir', 3)->nullable();
             $table->tinyInteger('sudah_masuk')->default('0');
+            $table->Double('tarif')->default('0.0');
             $table->timestamps();
         });
 

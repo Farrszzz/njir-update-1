@@ -14,13 +14,15 @@ class pkeluar1Controller extends Controller
     public function index()
     {
         $data_parkir = \App\Models\parkir::all();
-        return view('pkeluar1.index', ['data_parkir' => $data_parkir]);
+        $total_tarif = \App\Models\parkir::sum('tarif');
+        return view('pkeluar1.index', ['data_parkir' => $data_parkir, 'total_tarif' => $total_tarif]);
     }
 
     public function edit($id){
         $data_parkir = \App\Models\parkir::find($id);
+        $total_tarif = \App\Models\parkir::sum('tarif');
         $data_ruang = \App\Models\ruang::all();
-        return view('editKeluar.index', compact('data_parkir', 'data_ruang'));
+        return view('editKeluar.index', compact('data_parkir', 'total_tarif', 'data_ruang'));
     }
 
     public function update(Request $request,$id) {

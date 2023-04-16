@@ -4,46 +4,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/css/app.css">
-    <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js">
-    <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/js/popper.min.js">
     </head>
-    <body>
-        
+
 <nav class="navbar navbar-expand-lg bg-light" >
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/dashboard">Dashboard Admin</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href= "#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Parkir Mall
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Mall 1</a></li>
-            <li><a class="dropdown-item" href="#">Mall 2</a></li>
-            <li><a class="dropdown-item" href="#">Mall 3</a></li>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/dashboard">Admin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href= "#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Parkir Mall
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/mall1">Mall 1</a></li>
+                <li><a class="dropdown-item" href="/mall2">Mall 2</a></li>
+                <li><a class="dropdown-item" href="/mall3">Mall 3</a></li>
+              </ul>
+              <li class="nav-item">
+              <a class="nav-link" href="/pmasuk1">Petugas Masuk</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pruang1">Petugas Ruang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pkeluar1">Petugas Keluar</a>
+            </li>
+            </li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/pegawai">Data Petugas</a>
-        </li>
-      </ul>
-      <form action="/logout" method="post">
-        @csrf
-        <button type="submit" class="btn btn-outline-success"><i class="bi bi-box-arrow-right"></i>Logout</button>
-      </form>
-    </div>
-  </div>
-</nav>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
-</body>
-</html>
-
-
-
+          <form action="/logout" method="post">
+            @csrf
+            <button type="submit" class="btn btn-outline-success"><i class="bi bi-box-arrow-right"></i>Logout</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    </html>
 @extends('layouts.master')
 @section('content')
     @if(session('sukses'))
@@ -52,43 +50,37 @@
         </div>
     @endif
 
-
-
-
-        <div class="row">
-            <div class="col-6">
-                <h1>DATA PEGAWAI</h1>
-            </div>
-            <div class="col-6">
-                <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#exampleModal">
-                Tambah Petugas
-                </button>
-
-            </div>
-            <table class="table table-hover">
-                <tr>
-                    <th>Id</th>
-                    <th>Username</th>
-                    <th>Role</th>
-                    <th>Mall</th>
-                    <th>AKSI</th>
-                </tr>
-                @foreach($data_user as $user)
-                <tr>
-                    <td>{{$user->id}}</td>
-                    <td>{{$user->username}}</td>
-                    <td>{{$user->role}}</td>
-                    <td>{{$user->mall}}</td>
-                    <td>
-                        <a href="/pegawai/{{$user->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="/pegawai/{{$user->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm
-                        ('Apakah anda yakin ingin menghapus?')">Delete</a>
-                    </td>
-
-                </tr>
-                @endforeach
-            </table>
+    <div class="row">
+        <div class="col-6">
+            <h1>DATA PEGAWAI</h1>
         </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#exampleModal">
+            Tambah Petugas
+            </button>
+        </div>
+        <table class="table table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Mall</th>
+                <th>AKSI</th>
+            </tr>
+            @foreach($data_user as $user)
+            <tr>
+                <td>{{$user->id}}</td>
+                <td>{{$user->username}}</td>
+                <td>{{$user->role}}</td>
+                <td>{{$user->mall}}</td>
+                <td>
+                    <a href="/pegawai/{{$user->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="/pegawai/{{$user->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm
+                        ('Apakah anda yakin ingin menghapus?')">Delete</a>
+                </td>
+            </tr>
+            @endforeach
+        </table>
     </div>
 
 <!-- Modal -->
@@ -142,7 +134,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-        </div>
     </div>
+</div>
 @endsection
 

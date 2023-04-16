@@ -19,11 +19,7 @@
                 
                 <div class="form-group">
                 <label for="exampleFormControlSelect1">Ruang</label>
-                <!-- <select class="form-control" name="ruang" id="exampleFormControlSelect1">
-                    @foreach ($data_ruang as $ruang)
-                    <option value="{{$data_parkir->ruangParkir}}">{{$ruang->ruang}}</option>
-                    @endforeach
-                </select> -->
+                
                 <input type="text" name="ruangParkir" class="form-control" id="exampleInputEmail1" aria-describedby
                     ="emailHelp" placeholder="{{$data_parkir->ruangParkir}}" value="" readonly>
                 </div>
@@ -35,8 +31,19 @@
                     
                 </select>
                 </div>
+                <div>
+                <label for="exampleFormControlSelect1">Tarif</label>
+                <select class="form-control" name="tarif" id="exampleFormControlSelect1">
+                    
+                    
+                   
+                        <option value="{{$data_parkir->pernah_masuk *= 5000}}" >Rp. 5000</option>
+                        
+                    
+                </select>
+                </div>
                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm
-                        ('Apakah anda yakin ingin menghapus?')">Keluarkan</button>
+                        ('Apakah anda yakin ingin mengeluarkan Plat Nomor {{$data_parkir->platNomor}} dari ruang {{$data_parkir->ruangParkir}}?')">Keluarkan</button>
         </form>
         </div>
         </div>

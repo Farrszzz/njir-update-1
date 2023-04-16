@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class parkir extends Model
 {
     protected $table = 'parkir';
-    protected $fillable = ['platNomor', 'ruangParkir', 'sudah_masuk'];
+    protected $fillable = ['platNomor', 'ruangParkir', 'sudah_masuk', 'pernah_masuk', 'tarif'];
     protected $primaryKey = 'id';
 
     public function ruang() {
