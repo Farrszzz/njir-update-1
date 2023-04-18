@@ -49,6 +49,11 @@
     </html>
 
 @extends('layouts.master')
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 @section('content')
     @if(session('sukses'))
         <div class="alert alert-success" role="alert">
@@ -67,7 +72,7 @@
             </div>
             <table class="table">
                 <tr>
-                    <th>No. </th>
+                    <th>No.</th>
                     <th>Plat Nomor</th>
                     <th>Ruang</th>
                     <th>Detail</th>

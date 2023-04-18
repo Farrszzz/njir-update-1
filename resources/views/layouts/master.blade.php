@@ -6,10 +6,20 @@
     <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/css/app.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        th:first-child, th:nth-child(2), th:nth-child(3), th:nth-child(4), th:last-child {
+            border-top-color: black;
+        }
+
+        td, th, tr {
+            border: 1px solid;
+            border-color: black;
+        }
+    </style>
+    
 </head>
 <body style="background-color: #E5FE61">
     <div class="container">
-    
         @yield('content')
     </div>
 

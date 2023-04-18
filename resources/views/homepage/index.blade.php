@@ -8,20 +8,14 @@
     <style>
       body {
   /* background: linear-gradient(to left, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1)); */
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+  background: linear-gradient(310deg, #d33737, #2b45d7, #21c5d7, #ad50d0);
+    background-size: 800% 800%;
+	animation: gradient 10s ease infinite;
 }
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+	0%{background-position:0% 9%}
+    50%{background-position:100% 92%}
+    100%{background-position:0% 9%}
 }
 
 .mall-container {

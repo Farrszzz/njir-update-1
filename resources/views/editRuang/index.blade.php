@@ -47,7 +47,7 @@
                 </select>
                 </div>
                 <!-- <div class="form-group" hidden>
-                <label for="exampleFormControlSelect1">Plat Nomor yang tersedia</label>
+                <label for="exampleFormControlSelect1"></label>
                 <select class="form-control" name="pernah_masuk" id="exampleFormControlSelect1">
                     
                     <option value="{{$data_parkir->pernah_masuk+=1}}">1</option>

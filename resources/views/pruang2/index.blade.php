@@ -11,7 +11,7 @@
 
     <nav class="navbar navbar-expand-lg bg-dark" style="outline: 2px solid black">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/mall2" style="color:white">Dashboard Mall 2</a>
+      <a class="navbar-brand" href="/mall2" style="color:white">Dashboard Mall 2s</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -62,7 +62,7 @@
             </div>
             <table class="table">
                 <tr>
-                    <th>No. </th>
+                    <th>No.</th>
                     <th>Plat Nomor</th>
                     <th>Ruang</th>
                     <th>Aksi</th>

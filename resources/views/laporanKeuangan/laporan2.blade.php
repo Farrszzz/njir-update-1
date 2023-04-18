@@ -8,7 +8,7 @@
 
     <nav class="navbar navbar-expand-lg bg-dark" style="outline: 2px solid black">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/dashboard" style="color:white">Dashboard Admin</a>
+      <a class="navbar-brand" href="/mall2" style="color:white">Dashboard Mall 2</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,7 +35,7 @@
     
 <div class="row" style="margin-left: -100px">
             <div class="col-6">
-                <h1>Data Pemasukan Semua Mall</h1>
+                <h1>Data Pemasukan Mall 2</h1>
             </div>
             <table class="table">
                 <tr style="background-color:#444654">
@@ -56,35 +56,11 @@
                   <?php $i++; ?>
                   @endif
                   @endforeach
-
-                  @foreach($data_parkir2 as $parkir)
-                  @if ($parkir->tarif > 0)
-                  <tr>
-                      <td>{{$i}}</td>
-                      <td>{{$parkir->platNomor}}</td>
-                      <td>{{$parkir->pernah_masuk}}</td>
-                      <td>{{$parkir->tarif}}</td>
-                  </tr>
-                  <?php $i++; ?>
-                  @endif
-                  @endforeach
-
-                  @foreach($data_parkir3 as $parkir)
-                  @if ($parkir->tarif > 0)
-                  <tr>
-                      <td>{{$i}}</td>
-                      <td>{{$parkir->platNomor}}</td>
-                      <td>{{$parkir->pernah_masuk}}</td>
-                      <td>{{$parkir->tarif}}</td>
-                  </tr>
-                  <?php $i++; ?>
-                  @endif
-                  @endforeach
                 <tr style="background-color:#444654">
                     <td style="color:white">Total Pemasukan:</td>
                     <td></td>
                     <td></td>
-                    <td style="color:white">{{ $total_keseluruhan }}</td>
+                    <td style="color:white">{{ $total_tarif }}</td>
                 </tr>
             </table>
         </div>

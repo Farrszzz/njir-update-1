@@ -7,9 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-  
-  background-color: #627D9A;
-}
+            background-color: #627D9A;
+        }
     </style>
     </head>
 
@@ -28,7 +27,7 @@
             <button type="submit" class="btn" style="outline: 1px solid #ec5453; color:white"><i class="bi bi-box-arrow-right" style="margin-right: 5px"></i>Logout</button>
           </form>
         </div>
-      </div>
+    </div>
     </nav>
     </html>
     <body>
@@ -51,7 +50,7 @@
             Tambah Petugas
             </button>
         </div>
-        <table class="table table-hover">
+        <table class="table table-hover" style="outline:white">
             <tr>
                 <th>Id</th>
                 <th>Username</th>

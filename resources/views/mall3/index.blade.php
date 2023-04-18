@@ -1,4 +1,4 @@
-@extends('master.navigasi')<html>
+<html>
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/css/app.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     </head>
-
+    @extends('master.welcome')
+    <body>
+        
+    
     @if (Auth::user()->role=='Admin')
 
     <nav class="navbar navbar-expand-lg bg-dark" style="outline: 2px solid black">
@@ -31,7 +34,7 @@
     @else
     <nav class="navbar navbar-expand-lg bg-dark" style="outline: 2px solid black">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/mall1" style="color:white">Dashboard Mall 3</a>
+      <a class="navbar-brand" href="/mall3" style="color:white">Dashboard Mall 3</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -83,4 +86,11 @@
             <hr class="my-4">
         </div>
     </div>
+
+    <div class="col-12">
+        <a href="/keuangan3" class="btn btn-block btn-lg btn-light" style="width:1400px; height:150px; border-radius:10px; border: 2px solid black; font-size:53px; display: flex; justify-content: center; align-items: center; margin-left:170px">
+          Laporan Keuangan
+        </a>
+      </div>
+    </body>
    </html> 

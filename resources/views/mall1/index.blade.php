@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/css/app.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     </head>
-
+    @extends('master.welcome')
+    <body>
+      
+    
     @if (Auth::user()->role=='Admin')
 
     <nav class="navbar navbar-expand-lg bg-dark" style="outline: 2px solid black">
@@ -83,4 +86,13 @@
             <hr class="my-4">
         </div>
     </div>
+
+    
+      <div class="col-12">
+        <a href="/keuangan1" class="btn btn-block btn-lg btn-light" style="width:1400px; height:150px; border-radius:10px; border: 2px solid black; font-size:53px; display: flex; justify-content: center; align-items: center; margin-left:170px">
+          Laporan Keuangan
+        </a>
+      </div>
+    
+    </body>
    </html> 

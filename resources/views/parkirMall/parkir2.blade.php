@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/css/app.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     </head>
-    
     @if (!Auth::check())
   <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
@@ -30,7 +29,7 @@
 
     <nav class="navbar navbar-expand-lg bg-dark" style="outline: 2px solid black">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/mall1" style="color:white">Dashboard Mall 1</a>
+      <a class="navbar-brand" href="/mall2" style="color:white">Dashboard Mall 2</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -46,10 +45,10 @@
       </div>
     </nav>
 
-    @elseif (Auth::user()->role=='Petugas Masuk 1' || Auth::user()->role=='Petugas Ruang 1' || Auth::user()->role=='Petugas Keluar 1')
+    @elseif (Auth::user()->role=='Petugas Masuk 2' || Auth::user()->role=='Petugas Ruang 2' || Auth::user()->role=='Petugas Keluar 2')
     <nav class="navbar navbar-expand-lg bg-dark" style="outline: 2px solid black">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/mall1" style="color:white">Dashboard Mall 1</a>
+      <a class="navbar-brand" href="/mall2" style="color:white">Dashboard Mall 2</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
