@@ -9,7 +9,7 @@
     @endif
         <div class="row">
         <div class="col lg-12">
-        <form action="/pruang1/{{$data_parkir->id}}/update" method="POST">
+        <form action="/pruang3/{{$data_parkir->id}}/update" method="POST">
             {{csrf_field()}}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Plat Nomor</label>

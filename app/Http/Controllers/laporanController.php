@@ -15,7 +15,8 @@ class laporanController extends Controller
     {
         $data_parkir = \App\Models\parkir::all();
         $total_tarif = \App\Models\parkir::sum('tarif');
-        return view('laporanKeuangan.index', ['data_parkir' => $data_parkir, 'total_tarif' => $total_tarif]);
+        $i = 1;
+        return view('laporanKeuangan.index', ['data_parkir' => $data_parkir, 'total_tarif' => $total_tarif, 'i' => $i]);
     }
 
     /**

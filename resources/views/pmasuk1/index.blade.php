@@ -4,77 +4,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/css/app.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     </head>
 
     @if (Auth::user()->role=='Admin')
-<nav class="navbar navbar-expand-lg bg-light" >
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/dashboard">Admin</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href= "#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Parkir Mall
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/mall1">Mall 1</a></li>
-                <li><a class="dropdown-item" href="/mall2">Mall 2</a></li>
-                <li><a class="dropdown-item" href="/mall3">Mall 3</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pmasuk1">Petugas Masuk</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pruang1">Petugas Ruang</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pkeluar1">Petugas Keluar</a>
-            </li>
-          </ul>
-          <form action="/logout" method="post">
+
+    <nav class="navbar navbar-expand-lg bg-dark" style="outline: 2px solid black">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/mall1" style="color:white">Dashboard Mall 1</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item" style="font-size: 23px; color:white"><i class="bi bi-person-fill" style="margin-right: 5px; color:white"></i>Administrator</li>
+        </ul>
+          <form action="/logout" method="post" class="d-flex align-items-center">
             @csrf
-            <button type="submit" class="btn btn-outline-success"><i class="bi bi-box-arrow-right"></i>Logout</button>
+            <button type="submit" class="btn" style="outline: 1px solid #ec5453; color:white"><i class="bi bi-box-arrow-right" style="margin-right: 5px"></i>Logout</button>
           </form>
         </div>
       </div>
     </nav>
 
     @else
-    <nav class="navbar navbar-expand-lg bg-light" >
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/mall1">Mall 1</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href= "#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Parkir Mall
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/mall1">Mall 1</a></li>
-                <li><a class="dropdown-item" href="/mall2">Mall 2</a></li>
-                <li><a class="dropdown-item" href="/mall3">Mall 3</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pmasuk1">Petugas Masuk</a>
-            </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="/pruang1">Petugas Ruang</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pkeluar1">Petugas Keluar</a>
-            </li> -->
-          </ul>
-          <form action="/logout" method="post">
+    <nav class="navbar navbar-expand-lg bg-dark" style="outline: 2px solid black">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/mall1" style="color:white">Dashboard Mall 1</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item" style="font-size: 23px; color:white"><i class="bi bi-person-fill" style="margin-right: 5px; color:white"></i>{{Auth::user()->role}}</li>
+        </ul>
+          <form action="/logout" method="post" class="d-flex align-items-center">
             @csrf
-            <button type="submit" class="btn btn-outline-success"><i class="bi bi-box-arrow-right"></i>Logout</button>
+            <button type="submit" class="btn" style="outline: 1px solid #ec5453; color:white"><i class="bi bi-box-arrow-right" style="margin-right: 5px"></i>Logout</button>
           </form>
         </div>
       </div>
@@ -82,13 +48,6 @@
     @endif
     </html>
 
-    @if (Auth::user()->role=='Petugas Masuk')
-    <div class="box" style="width:1400px; margin:auto; margin-top:50px; background-color:cream; border-radius:10px">
-      <h1 class="display-4" style="margin-left:10px">Selamat datang, Petugas Masuk</h1>
-      <hr class="my-4">
-      <p style="margin-left:10px"></p>
-    </div>
-    @endif
 @extends('layouts.master')
 @section('content')
     @if(session('sukses'))
@@ -114,7 +73,7 @@
                     <th>Detail</th>
                 </tr>
                 @foreach($data_parkir as $parkir)
-                @if($parkir->pernah_masuk == 0)
+                @if($parkir->pernah_masuk == 0 || $parkir->sudah_masuk == 1)
                 <tr>
                     @if($parkir->ruangParkir == NULL)
                         <tr style = 'background-color:red; color:white'>
@@ -139,6 +98,7 @@
     </div>
 
     <!-- Modal -->
+    
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -151,6 +111,7 @@
         <div class="modal-body">
             <form action="/pmasuk1/add" method="POST">
             {{csrf_field()}}
+            
                 <div class="form-group">
                     <label for="exampleInputEmail1">Plat Nomor</label>
                     <input type="text" name="platNomor" class="form-control" placeholder="Plat Nomor"
@@ -167,6 +128,15 @@
                     
                 </select>
                 </div>
+                <div class="form-group" hidden>
+                <label for="exampleFormControlSelect1">Plat Nomor yang tersedia</label>
+                <select class="form-control" name="pernah_masuk" id="exampleFormControlSelect1">
+                    
+                    <option value="1">1</option>
+                    
+                </select>
+                </div>
+                
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Submit</button>

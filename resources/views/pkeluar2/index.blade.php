@@ -11,7 +11,7 @@
 
     <nav class="navbar navbar-expand-lg bg-dark" style="outline: 2px solid black">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/dashboard" style="color:white">Dashboard Admin</a>
+      <a class="navbar-brand" href="/mall2" style="color:white">Dashboard Pakuwon Mall</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -26,12 +26,11 @@
         </div>
       </div>
     </nav>
-    
 
     @else
     <nav class="navbar navbar-expand-lg bg-dark" style="outline: 2px solid black">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/mall1" style="color:white">Dashboard Pakuwon Mall</a>
+      <a class="navbar-brand" href="/mall2" style="color:white">Dashboard Pakuwon Mall</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -47,40 +46,57 @@
       </div>
     </nav>
     @endif
-
-    <div class="box" style="width:1400px; margin:auto; margin-top:30px; background-color:cream; border-radius:10px">
-      <h1 class="display-4" style="margin-left:10px">Dashboard Pakuwon Mall</h1>
-      <hr class="my-4">
-      <p style="margin-left:10px"></p>
-    </div>
-
-    <div class="box" style="width:1400px; margin:auto; margin-top:30px; background-color:cream; border-radius:10px">
-        <div class="boxMall" style="width:400px; display:inline-block">
-            <button style="width:400px; height:150px; background-color:white; border-radius:10px">
-            <a class="display-4" style="margin-left:10px; color:black; text-decoration:none" href="/pmasuk2">Petugas Masuk</a>
-            </button>
-            <hr class="my-4">
+    </html>
+@extends('layouts.master')
+@section('content')
+    @if(session('sukses'))
+        <div class="alert alert-success" role="alert">
+        {{session('sukses')}}
         </div>
-        <div class="boxMall" style="width:400px; display:inline-block; margin-left:67px">
-            <button style="width:400px; height:150px; background-color:white; border-radius:10px">
-            <a class="display-4" style="margin-left:10px; color:black; text-decoration:none" href="/pruang2">Petugas Ruang</a>
-            </button>
-            <hr class="my-4">
+    @endif
+    
+<div class="row">
+            <div class="col-6">
+                <h1>Data Kendaraan</h1>
+            </div>
+            <!-- <div style="margin-right:300px">
+        <h3>Total Tarif Parkir: {{ $total_tarif }}</h3>
+    </div> -->
+            <table class="table">
+                <tr>
+                    <th>ID Parkir</th>
+                    <th>Plat Nomor</th>
+                    <th>Ruang</th>
+                    <th>Aksi</th>
+                </tr>
+                @foreach($data_parkir as $parkir)
+                
+                <tr>
+                    @if($parkir->sudah_masuk == 0)
+                        <tr style = 'background-color:green; color:white'>
+                    @else
+                        <tr style = 'background-color:red; color:white'>
+                    @endif
+                    <td>{{$parkir->id}}</td>
+                    <td>{{$parkir->platNomor}}</td>
+                    @if($parkir->sudah_masuk == 0)
+                        <td>Sudah Keluar</td>
+                    @else
+                        <td>{{$parkir->ruangParkir}}</td>
+                    @endif
+                    @if($parkir->sudah_masuk == 0)
+                        <td>Tidak ada aksi yang tersedia</td>
+                    @else
+                    <td>
+                    <a href="/pkeluar2/{{$parkir->id}}/edit" class="btn btn-danger btn-sm">Keluarkan</a>
+                    </td>
+                    @endif
+                </tr>
+                @endforeach
+            </table>
+            
         </div>
-        <div class="boxMall" style="width:400px; display:inline-block; margin-left:67px">
-            <button style="width:400px; height:150px; background-color:white; border-radius:10px">
-            <a class="display-4" style="margin-left:10px; color:black; text-decoration:none" href="/pkeluar2">Petugas Keluar</a>
-            </button>
-            <hr class="my-4">
-        </div> 
     </div>
-
-    <div class="box" style="width:1400px; margin:auto; margin-top:30px; background-color:cream; border-radius:10px">
-        <div class="boxMall" style="width:1400px; display:inline-block">
-            <button class="btn" style="width:1400px; height:150px; background-color:white; border-radius:10px; border: 2px solid black">
-            <a class="display-4" style="margin-left:10px; color:black; text-decoration:none" href="/parkir2">Parkir Mall 2</a>
-            </button>
-            <hr class="my-4">
-        </div>
-    </div>
-   </html> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+</html>
+@endsection

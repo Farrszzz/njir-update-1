@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/assets/bootstrap-5.3.0-alpha1-dist/css/app.css">
     <title>Login</title>
     </head>
-    <section class="vh-100 gradient-custom" style="background: #6a11cb">
+    <section class="vh-100 gradient-custom" style="background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">

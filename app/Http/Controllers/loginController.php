@@ -23,13 +23,33 @@ class loginController extends Controller
 
     if ($role == 'Admin') {
         return route('dashboard');
-    } elseif ($role == 'Petugas Masuk') {
+    } elseif ($role == 'Petugas Masuk 1') {
         return route('pmasuk1');
-    } elseif ($role == 'Petugas Ruang') {
+    } elseif ($role == 'Petugas Ruang 1') {
         return route('pruang1');
-    } elseif ($role == 'Petugas Keluar') {
-        return route('pkeluar1');
-    } else {
+    } elseif ($role == 'Petugas Keluar 1') {
+        return route('pkeluar1');   
+    } 
+
+
+    elseif ($role == 'Petugas Masuk 2') {
+        return route('pmasuk2');
+    } elseif ($role == 'Petugas Ruang 2') {
+        return route('pruang2');
+    } elseif ($role == 'Petugas Keluar 2') {
+        return route('pkeluar2');
+    }
+
+
+    elseif ($role == 'Petugas Masuk 3') {
+        return route('pmasuk3');
+    } elseif ($role == 'Petugas Ruang 3') {
+        return route('pruang3');
+    } elseif ($role == 'Petugas Keluar 3') {
+        return route('pkeluar3');
+    }
+
+    else {
         return route('login');
     }
 }
@@ -59,7 +79,7 @@ class loginController extends Controller
  
         $request->session()->regenerateToken();
  
-        return redirect('/login');
+        return redirect('/');
     }
 
     /**
