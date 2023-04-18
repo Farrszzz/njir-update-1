@@ -31,7 +31,7 @@
     @else
     <nav class="navbar navbar-expand-lg bg-dark" style="outline: 2px solid black">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/mall1" style="color:white">Dashboard Pakuwon Mall</a>
+      <a class="navbar-brand" href="/mall1" style="color:white">Dashboard Mall 2</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -49,7 +49,7 @@
     @endif
 
     <div class="box" style="width:1400px; margin:auto; margin-top:30px; background-color:cream; border-radius:10px">
-      <h1 class="display-4" style="margin-left:10px">Dashboard Pakuwon Mall</h1>
+      <h1 class="display-4" style="margin-left:10px">Dashboard Mall 2</h1>
       <hr class="my-4">
       <p style="margin-left:10px"></p>
     </div>

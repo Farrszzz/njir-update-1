@@ -64,7 +64,7 @@
     </div> -->
             <table class="table">
                 <tr>
-                    <th>ID Parkir</th>
+                    <th>No. </th>
                     <th>Plat Nomor</th>
                     <th>Ruang</th>
                     <th>Aksi</th>
